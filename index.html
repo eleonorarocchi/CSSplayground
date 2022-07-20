@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS playground</title>
+</head>
+<body>
+    <h1>CSS playground</h1>
+    <hr/>
+    <h2>Intro</h2>
+    <p>Ogni elemento HTML in una pagina web è una scatola rettangolare (box).</p>
+    <p>Tutti gli elementi in HTML, per impostazione predefinita, sono rettangolari poiché internamente il browser disegna un rettangolo.</p>
+    <p>Ogni elemento HTML è composto da 4 aree: contenuto, riempimento, bordo e margine. Queste aree vengono impilate per formare il modello a scatola.</p>
+    <p>Ci sono due tipi fondamentali di box: Scatole a blocchi. Scatole in linea. Questi due tipi di scatole esistono dall'inizio del web:</p>
+    <ul>
+        <li>block: Le caselle a blocchi, per impostazione predefinita, occupano l'intera larghezza del contenitore.</li>
+        <li>inline: Le caselle in linea, per impostazione predefinita, occupano spazio in base al contenuto avvolto.</li>
+    </ul>
+    <h2>Block</h2>
+    <p>I valori di base della proprietà di visualizzazione sono il valore inline e il valore del blocco.</p>
+    <p>L'elemento HTML span, per impostazione predefinita, utilizza il valore inline.</p>
+    <p>L'elemento HTML div, per impostazione predefinita, utilizza il valore block.</p>
+
+    <p>Quando creiamo pagine Web, il browser carica il proprio foglio di stile CSS prima di caricare una singola riga di CSS, il che significa che ogni browser viene fornito con una certa quantità di CSS per impostazione predefinita che chiamiamo foglio di stile user-agent.</p>
+    <p>Nel concetto di proprietà display si menziona anche che questa proprietà imposta i tipi di visualizzazione interna ed esterna di un elemento. Il tipo esterno stabilisce la partecipazione di un elemento al flusso normale; il tipo interno imposta la disposizione dei child.</p>
+
+    <h3>Flusso normale</h3>
+    <p>Il flusso normale in HTML è l'ordine naturale in cui gli elementi appaiono sullo schermo, ovvero gli elementi appariranno posizionati come sono nel codice HTML solo se non viene applicato alcun CSS che cambia il modo in cui si comportano.</p>
+    <p>Come abbiamo già accennato in precedenza, questi elementi in HTML per impostazione predefinita sono elementi "inline" o elementi "in block".</p>
+    <p>Sapendo questo, la documentazione MDN definisce il flusso normale come segue: Il flusso normale, o layout del flusso, è il modo in cui gli elementi in linea e blocco vengono visualizzati su una pagina prima che vengano apportate modifiche al loro layout.</p>
+    <p>Nel flusso normale, gli elementi in linea vengono visualizzati nella direzione in linea, ovvero vengono visualizzati uno dopo l'altro, a partire da sinistra.</p>
+    <p>Gli elementi del blocco vengono visualizzati uno dopo l'altro, ovvero iniziano in alto e si spostano verso il basso nella pagina. </p>
+    <p>La proprietà display, oltre ad avere i valori precedenti, ha anche un valore chiamato: inline-block che, insieme agli altri, ci aiuta a definire la collocazione dei singoli elementi. Ha anche altri valori importanti come: none, flex e grid.</p>
+
+    <h3>display: inline</h3>
+    <p>Gli elementi inline non consentono dimensioni (larghezza, altezza) ma consentono margini, spaziatura interna e bordo. </p>
+    <p>Occupano solo ciò che hanno nel loro contenuto, ovvero anche se si desidera dichiarare una larghezza e un'altezza a un elemento inline non è possibile. Questi elementi non accettino dimensioni, come spiegato anche dalla documentazione MDN: Gli elementi in linea hanno la loro altezza e larghezza determinate dal loro contenuto.</p>
+    <p>Se ci sono più elementi in una riga, verranno posizionati da sinistra a destra (uno accanto all'altro).</p>
+    <p>Se vuoi cambiare la dimensione, devi tenere conto che non potrai farlo perché ricorda che gli elementi di linea non ammettono dimensioni, puoi cambiarlo display:block o display:inline-block, in questo in questo modo potrai modificare le dimensioni dei tuoi elementi</p>
+
+    <div style="display: inline; border: 1px solid red; margin: 5px; padding: 5px; /* NON ACCETTA:height: 100px; width: 100px; */">content</div>
+
+    <h3>display: block</h3>
+    <p>Un elemento block occupa la larghezza massima disponibile.</p>
+    <p>Come dice la documentazione MDN: per impostazione predefinita, il contenuto di un elemento a livello di blocco è il 100% della larghezza del suo elemento padre e la sua altezza è determinata dal suo contenuto.</p>
+    <p>Ciò significa che gli elementi di tipo blocco coprono il 100% dello spazio che hanno a disposizione, ovvero si estendono per l'intera larghezza della pagina.</p>
+    <p>Questi elementi ammettono dimensioni ma non possono avere un altro elemento accanto poiché coprono tutto lo spazio che hanno a disposizione, quindi verranno posizionati dall'alto verso il basso, sebbene questo comportamento predefinito possa essere modificato posizionando display: inline-block.</p>
+    <p>Quando ci sono più elementi, questi sono separati dai loro margini. Ciò ha a che fare con una questione fondamentale chiamata: Collasso del margine.</p>
+    <p>In generale, gli elementi di block possono contenere anche elementi in-line e altri elementi block, quindi gli elementi block creano strutture "più grandi" rispetto agli elementi in-line.</p>
+
+    <div style="display: block; border: 1px solid red; margin: 5px; padding: 5px; width: 300px; height: 150px;">content</div>
+
+    <h3>display: inline-block</h3>
+    <p>È una combinazione tra i due tipi di elementi sopra menzionati (block e inline).</p>
+    <p>Elementi con il valore inline-block ammettono dimensioni ma sono comunque elementi inline, ovvero verranno posizionati uno accanto all'altro.</p>
+
+    <div style="display: inline-block; border: 1px solid red; margin: 5px; padding: 5px; height: 100px; width: 100px;">content</div>
+    <div style="display: inline-block; border: 1px solid red; margin: 5px; padding: 5px; height: 100px; width: 100px;">content</div>
+
+    <h3>display: none</h3>
+    <p>Quello che fa il valore none della proprietà display è che nasconde un elemento, quindi non occuperà spazio.</p>
+    <p>Nasconde l'elemento che però continua ad esistere: non verrebbe visualizzato ma le risorse continuerebbero ad essere scaricate, quindi deve essere usato con cura.</p>
+
+    <div style="display: none; border: 1px solid red; margin: 5px; padding: 5px; height: 400px; width: 100px;">content</div>
+
+    <hr/>
+</body>
+</html>
